@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<%let cName=" ";%>
+<%if(postsArr.length>0) {%>
+<%    cName = "invisibleElement";%>
+<%}%>
+
+
+<div class="px-4 py-5 my-5 text-center emptyView <%=cName%>">
+    <h3 class="display-5 fw-bold text-body-emphasis">Please add entry to see blogs here.</h3>
+</div>
+
+<% postsArr.forEach((post) => { %>
+    <h3><%=post.title%></h3>
+    <p >
+        <%=post.post.substring(0,100)+" ..."%>
+        <a href="post/<%=post._id%>">Read More</a>
+    </p>
+<% }); %>
+
+<%- include('partials/footer') %>
